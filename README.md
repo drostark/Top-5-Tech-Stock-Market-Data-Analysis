@@ -64,8 +64,8 @@ In this project, we will employ the Google data analysis process, comprising the
 1.	What was the change in price of the stock over time?
 2.	What was the daily return of the stock on average?
 3.	What was the moving average of the various stocks?
-4.	What was the correlation between different stocks closing prices?
-5.	What was the correlation between different stocks daily returns?
+4.	What was the correlation between different stocks' closing prices?
+5.	What was the correlation between different stocks' daily returns?
 6.	How much value do we put at risk by investing in a particular stock?
 7.	How can we attempt to predict future stock behavior?
 8.	How can we estimate the value at risk for a stock?
@@ -170,7 +170,7 @@ Number of duplicated rows: 0
 
 ## Part 3: Analyze & Share
 
-1. To answer the first question, I generated a line plot showing the change in the adjusted closing prices of multiple stocks over the last year. The `x-axis` represents the `dates`, and the `y-axis` represents the `adjusted close prices`. this plot allows you to visually compare the price movements of the different stocks. By examining the lines on the plot, you can observe the general trends and fluctuations in stock prices over the given time period. The differences in the slopes or peaks of the lines indicate the relative changes in price for each stock.
+1. To answer the first question, What was the change in price of the stock over time? I generated a line plot showing the change in the adjusted closing prices of multiple stocks over the last year. The `x-axis` represents the `dates`, and the `y-axis` represents the `adjusted close prices`. this plot allows you to visually compare the price movements of the different stocks. By examining the lines on the plot, you can observe the general trends and fluctuations in stock prices over the given time period. The differences in the slopes or peaks of the lines indicate the relative changes in price for each stock.
 ```python
 fig, ax = plt.subplots(figsize=(10, 4))
 AAPL['Adj Close'].plot(legend=True, ax=ax, label='Apple')
@@ -185,9 +185,10 @@ ax.set_title('Stock Prices')
    ![top5_adjusted-closing-price](https://github.com/drostark/Top-5-Tech-Stock-Market-Data-Analysis/blob/222e1afa99379254ff0cd09b67d75b061b6be4e4/Images/230628_01_top5_adjusted-closing-price.png)
 
 Using the same approach, another line plot was created to visualize the trading volumes of the stocks over the past year. The x-axis of the plot corresponds to the dates, while the y-axis represents the trading volume.
-   ![top5_adjusted-closing-price](https://github.com/drostark/Top-5-Tech-Stock-Market-Data-Analysis/blob/222e1afa99379254ff0cd09b67d75b061b6be4e4/Images/230628_01_top5_adjusted-closing-price.png)
+   ![top5_volume](https://github.com/drostark/Top-5-Tech-Stock-Market-Data-Analysis/blob/70d49910ac53358a255e5fb3bb865622faa15f26/Images/230628_01_top5_volume.png)
 
-
+2. To address the question regarding the average daily return of the stocks, I computed the percentage change in the `Adj Close` column, representing the `Daily Return`. The resulting plot illustrates the daily returns of the stocks and incorporates a reference line that represents the average daily return for each stock. This enables straightforward comparisons among the stocks' daily returns and facilitates the identification of stocks with relatively higher or lower average returns
+   ![top5_daily_return_pct](https://github.com/drostark/Top-5-Tech-Stock-Market-Data-Analysis/blob/70d49910ac53358a255e5fb3bb865622faa15f26/Images/230628_01_top5_volume.png)
 
 
 
