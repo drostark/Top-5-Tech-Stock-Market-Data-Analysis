@@ -218,7 +218,12 @@ Maximum return date: 2023-02-02 00:00:00
 ```
 The plot revealed discrepancies in the minimum and maximum values of the 'META' stock compared to other tech stocks. Upon investigating, I found that on October 27, 2022, Meta's profits sharply declined during Q3, as reported by GamesIndustry.biz. This decline was a result of a 52% decrease in net income and expected growth in the cost of revenue for the Reality Labs division. Conversely, on February 2, 2023, Meta's stock experienced a significant 23% surge, making it one of the best-performing days in over a decade, according to CNBC. These external factors explain the deviations in the daily returns of the 'META' stock and indicate that they were influenced by notable financial events rather than technical issues.
 
-
+To delve further into my interest in the performance of the 'META' stock over the past year, I created a kernel density estimate (KDE) plot using Seaborn (sns). This plot effectively visualizes the distribution of the daily returns of the 'META' stock during that time period. By combining a histogram with the KDE curve, the plot offers valuable insights into the shape and spread of the returns distribution. This facilitates a deeper analysis of the stock's volatility and potential patterns, contributing to a better understanding of its overall performance.
+```python
+sns.distplot(META['Daily Return'].dropna(), bins=100, color='purple')
+plt.gca().yaxis.set_major_formatter(mtick.PercentFormatter(1.0))
+```
+   ![meta_daily_return_kde](https://github.com/drostark/Top-5-Tech-Stock-Market-Data-Analysis/blob/07ed06ec080f51a851a8e67eaba9d8ce94011082/Images/230628_02_top5_tech_daily_return_pct.png)
 ## Conclusion
 By analyzing the market data of these top 5 tech stocks and addressing the relevant questions, investors can gain valuable insights into their performance and investment potential. The data preparation, analysis, and sharing phases provide a systematic approach to understand the stock prices, market capitalization, revenue growth, EPS, and volatility of these companies. However, it's important to conduct further research and seek professional advice before making any investment decisions.
 
