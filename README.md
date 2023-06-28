@@ -170,7 +170,18 @@ Number of duplicated rows: 0
 
 ## Part 3: Analyze & Share
 
-1. To answer the first question,
+1. To answer the first question, I generated a line plot showing the change in the adjusted closing prices of multiple stocks over the last year. The `x-axis` represents the `dates`, and the `y-axis` represents the `adjusted close prices`. this plot allows you to visually compare the price movements of the different stocks. By examining the lines on the plot, you can observe the general trends and fluctuations in stock prices over the given time period. The differences in the slopes or peaks of the lines indicate the relative changes in price for each stock.
+```python
+fig, ax = plt.subplots(figsize=(10, 4))
+AAPL['Adj Close'].plot(legend=True, ax=ax, label='Apple')
+GOOG['Adj Close'].plot(legend=True, ax=ax, label='Google')
+AMZN['Adj Close'].plot(legend=True, ax=ax, label='Amazon')
+MSFT['Adj Close'].plot(legend=True, ax=ax, label='Microsoft')
+META['Adj Close'].plot(legend=True, ax=ax, label='Meta Platforms')
+ax.set_xlabel('Date')
+ax.set_ylabel('Adjusted Close Price')
+ax.set_title('Stock Prices')
+```
 
 ## Conclusion
 By analyzing the market data of these top 5 tech stocks and addressing the relevant questions, investors can gain valuable insights into their performance and investment potential. The data preparation, analysis, and sharing phases provide a systematic approach to understand the stock prices, market capitalization, revenue growth, EPS, and volatility of these companies. However, it's important to conduct further research and seek professional advice before making any investment decisions.
