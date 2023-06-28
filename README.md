@@ -170,7 +170,7 @@ Number of duplicated rows: 0
 
 ## Part 3: Analyze & Share
 
-
+1. To answer the first question,
 
 ## Conclusion
 By analyzing the market data of these top 5 tech stocks and addressing the relevant questions, investors can gain valuable insights into their performance and investment potential. The data preparation, analysis, and sharing phases provide a systematic approach to understand the stock prices, market capitalization, revenue growth, EPS, and volatility of these companies. However, it's important to conduct further research and seek professional advice before making any investment decisions.
