@@ -182,6 +182,16 @@ ax.set_xlabel('Date')
 ax.set_ylabel('Adjusted Close Price')
 ax.set_title('Stock Prices')
 ```
+   ![top5_adjusted-closing-price](https://github.com/drostark/Top-5-Tech-Stock-Market-Data-Analysis/blob/222e1afa99379254ff0cd09b67d75b061b6be4e4/Images/230628_01_top5_adjusted-closing-price.png)
+
+Using the same approach, another line plot was created to visualize the trading volumes of the stocks over the past year. The x-axis of the plot corresponds to the dates, while the y-axis represents the trading volume.
+   ![top5_adjusted-closing-price](https://github.com/drostark/Top-5-Tech-Stock-Market-Data-Analysis/blob/222e1afa99379254ff0cd09b67d75b061b6be4e4/Images/230628_01_top5_adjusted-closing-price.png)
+
+
+
+
+
+
 
 ## Conclusion
 By analyzing the market data of these top 5 tech stocks and addressing the relevant questions, investors can gain valuable insights into their performance and investment potential. The data preparation, analysis, and sharing phases provide a systematic approach to understand the stock prices, market capitalization, revenue growth, EPS, and volatility of these companies. However, it's important to conduct further research and seek professional advice before making any investment decisions.
