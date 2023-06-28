@@ -188,10 +188,35 @@ Using the same approach, another line plot was created to visualize the trading 
    ![top5_volume](https://github.com/drostark/Top-5-Tech-Stock-Market-Data-Analysis/blob/70d49910ac53358a255e5fb3bb865622faa15f26/Images/230628_01_top5_volume.png)
 
 2. To address the question regarding the average daily return of the stocks, I computed the percentage change in the `Adj Close` column, representing the `Daily Return`. The resulting plot illustrates the daily returns of the stocks and incorporates a reference line that represents the average daily return for each stock. This enables straightforward comparisons among the stocks' daily returns and facilitates the identification of stocks with relatively higher or lower average returns
-   ![top5_daily_return_pct](https://github.com/drostark/Top-5-Tech-Stock-Market-Data-Analysis/blob/70d49910ac53358a255e5fb3bb865622faa15f26/Images/230628_01_top5_volume.png)
-
-
-
+   ![top5_daily_return_pct](https://github.com/drostark/Top-5-Tech-Stock-Market-Data-Analysis/blob/07ed06ec080f51a851a8e67eaba9d8ce94011082/Images/230628_02_top5_tech_daily_return_pct.png)
+Due to discrepancies in the `minimum` and `maximum` values of the 'META' stock compared to other tech stocks in the generated plot, I opted to isolate the 'META' stock and further investigate the issue.
+```python
+meta_returns = META['Adj Close'].pct_change()
+print(meta_returns.describe())
+```
+```
+count    251.000000
+mean       0.002923
+std        0.035170
+min       -0.245571
+25%       -0.011725
+50%        0.000701
+75%        0.018385
+max        0.232824
+Name: Adj Close, dtype: float64
+```
+```python
+meta_returns = META['Adj Close'].pct_change()
+min_date = meta_returns.idxmin()
+max_date = meta_returns.idxmax()
+print("Minimum return date:", min_date)
+print("Maximum return date:", max_date)
+```
+```
+Minimum return date: 2022-10-27 00:00:00
+Maximum return date: 2023-02-02 00:00:00
+```
+The plot revealed discrepancies in the minimum and maximum values of the 'META' stock compared to other tech stocks. Upon investigating, I found that on October 27, 2022, Meta's profits sharply declined during Q3, as reported by GamesIndustry.biz. This decline was a result of a 52% decrease in net income and expected growth in the cost of revenue for the Reality Labs division. Conversely, on February 2, 2023, Meta's stock experienced a significant 23% surge, making it one of the best-performing days in over a decade, according to CNBC. These external factors explain the deviations in the daily returns of the 'META' stock and indicate that they were influenced by notable financial events rather than technical issues.
 
 
 ## Conclusion
