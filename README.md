@@ -1,7 +1,7 @@
 # Top 5 Tech Stock Market Data Analysis
 
 ## Introduction
-In my analysis, conducted as of 25/06/2023, I will examine the market data of the top 5 tech stocks and provide insights into their performance and potential for investment. These stocks represent some of the most prominent companies in the technology sector and have shown significant growth in recent years.
+In my analysis, conducted as of 28/06/2023, I will examine the market data of the top 5 tech stocks and provide insights into their performance and potential for investment. These stocks represent some of the most prominent companies in the technology sector and have shown significant growth in recent years.
 
 ## Stock List
 
