@@ -57,15 +57,15 @@ The dataset sourced from Yahoo Finance comprises pertinent information about the
 
 ## Project Overview and Steps
 
-In this project, we will employ the Google data analysis process, comprising the `Ask`, `Prepare`, `Process`, `Analyze`, and `Share` phases, to address specific inquiries related to the dataset obtained from Yahoo Finance for the top-5 stocks.
+In this project, we will employ the Google data analysis process, comprising the `Ask`, `Prepare`, `Analyze & Share` phase, to address specific inquiries related to the dataset obtained from Yahoo Finance for the top-5 stocks. Due to the unique profile of the project, the `Process`, `Analyze`, and `Share` phases are merged into the `Analyze & Share` phase, reflecting a more integrated and efficient workflow. 
 
-## Part 1: Ask**
+## Part 1: Ask
 
 1.	What was the change in price of the stock over time?
 2.	What was the daily return of the stock on average?
 3.	What was the moving average of the various stocks?
-4.	What was the correlation between different stock’ closing prices?
-5.	What was the correlation between different stocks’ daily returns?
+4.	What was the correlation between different stocks closing prices?
+5.	What was the correlation between different stocks daily returns?
 6.	How much value do we put at risk by investing in a particular stock?
 7.	How can we attempt to predict future stock behavior?
 8.	How can we estimate the value at risk for a stock?
@@ -168,23 +168,9 @@ print("Number of duplicated rows:", duplicates_count)
 Number of duplicated rows: 0
 ```
 
-## Analysis
+## Part 3: Analyze & Share
 
-The analysis phase involved:
-1. Plotting the stock price trends over time for each company to assess their performance.
-2. Comparing market capitalization values to identify the leading tech companies.
-3. Calculating revenue growth rates to evaluate their financial performance.
-4. Analyzing the EPS values to understand the profitability of each stock.
-5. Assessing historical volatility to gauge the risk associated with investing in these stocks.
 
-## Sharing
-
-The findings and insights from the analysis are shared through various mediums, including:
-
-1. Creating visualizations to illustrate the stock price trends, market capitalization, revenue growth, EPS, and volatility.
-2. Summarizing the key takeaways and notable observations from the analysis.
-3. Sharing the analysis report through blog posts, presentations, or interactive dashboards.
-4. Encouraging discussions and feedback from investors and analysts to gain additional insights.
 
 ## Conclusion
 By analyzing the market data of these top 5 tech stocks and addressing the relevant questions, investors can gain valuable insights into their performance and investment potential. The data preparation, analysis, and sharing phases provide a systematic approach to understand the stock prices, market capitalization, revenue growth, EPS, and volatility of these companies. However, it's important to conduct further research and seek professional advice before making any investment decisions.
