@@ -223,9 +223,10 @@ To delve further into my interest in the performance of the 'META' stock over th
 ```python
 sns.distplot(META['Daily Return'].dropna(), bins=100, color='purple')
 plt.gca().yaxis.set_major_formatter(mtick.PercentFormatter(1.0))
+plt.title('Distribution of Daily Returns')
 ```
 
-   ![meta_daily_return_kde](https://github.com/drostark/Top-5-Tech-Stock-Market-Data-Analysis/blob/cf276eecbd367381178169105dfdb66c66eed411/Images/230628_02_meta_tech_daily_return_kde.png)
+   ![meta_daily_return_kde](https://github.com/drostark/Top-5-Tech-Stock-Market-Data-Analysis/blob/00693e7512d3c6f0aac988954620b639e382a3df/Images/230628_02_meta_tech_daily_return_kde.png)
 
 3. To answer the third question, "What was the moving average of the various stocks?", a plot was generated to show the 20-day moving average for each stock. The plot represents the stock prices on the y-axis and the dates on the x-axis. Each line in the plot corresponds to the 20-day moving average for a specific stock. The moving average provides a smoothed trend line that reflects the average price over the past 20 days. This plot allows for easy comparison and analysis of the moving average trends across different stocks, providing insights into the overall direction and stability of each stock's price movement over the specified time period.
 
@@ -256,7 +257,7 @@ returns_fig.map_lower(sns.kdeplot, cmap='cool_d')
 returns_fig.map_diag(plt.hist,bins=30)
 ```
 
-![top5_pair_grid_closingprices](https://github.com/drostark/Top-5-Tech-Stock-Market-Data-Analysis/blob/54eccf34e652d5d8f542e89ce4334ebcd3772e2e/Images/230629_04_pairgrid_closingprices.png)
+![top5_pair_grid_closingprices](https://github.com/drostark/Top-5-Tech-Stock-Market-Data-Analysis/blob/66675be111573b572a273226467f2765d63d6043/Images/230629_04_pairgrid_closingprices.png)
 
 To further clarify the correlation between the closing prices of different stocks, I created a correlation plot in the form of a heatmap. The correlation matrix was calculated based on the closing prices, indicating the strength and direction of the relationships between the stocks. A mask was applied to the heatmap to display only the lower triangular portion of the matrix, avoiding duplicate and redundant information. The values of the correlations are also annotated on the heatmap, providing a visual representation of the relationships between the stocks' closing prices.
 ```python
@@ -265,7 +266,7 @@ corr_matrix_closing = sorted_closing_df.corr()
 mask = np.tril(np.ones_like(corr_matrix_closing, dtype=bool))
 sns.heatmap(corr_matrix_closing, annot=True,mask=mask)
 ```
-![top5_heatmap_closingprices_corr](https://github.com/drostark/Top-5-Tech-Stock-Market-Data-Analysis/blob/54eccf34e652d5d8f542e89ce4334ebcd3772e2e/Images/230629_04_heatmap_closingprices_corr.png)
+![top5_heatmap_closingprices_corr](https://github.com/drostark/Top-5-Tech-Stock-Market-Data-Analysis/blob/66675be111573b572a273226467f2765d63d6043/Images/230629_04_heatmap_closingprices_corr.png)
 
 5. To analyze the correlation between the daily returns of different stocks, I've generated another pair grid plot. This plot visually presents the relationships and distributions of the daily returns using scatter plots, KDE plots, and histograms. By studying these visual representations, we can identify any correlations, patterns, or trends in the daily returns of the stocks, providing insights into their interconnectedness and potential relationships.
 ```python
@@ -277,7 +278,7 @@ returns_fig.map_lower(sns.kdeplot, cmap='cool_d')
 returns_fig.map_diag(plt.hist,bins=30)
 ```
 
-![top5_pair_grid_dailyreturn](https://github.com/drostark/Top-5-Tech-Stock-Market-Data-Analysis/blob/09d745ee6c33be379760af68dd0187e23469e207/Images/230629_05_pairgrid_dailyreturn.png)
+![top5_pair_grid_dailyreturn](https://github.com/drostark/Top-5-Tech-Stock-Market-Data-Analysis/blob/66675be111573b572a273226467f2765d63d6043/Images/230629_05_pairgrid_dailyreturn.png)
 
 Additionally, I created a correlation heatmap to analyze the relationships between the daily returns of different stocks. The heatmap presents a correlation matrix, highlighting the strength and direction of these relationships.
 ```python
@@ -286,7 +287,7 @@ corr_matrix_daily = sorted_tech_rets.corr()
 mask = np.tril(np.ones_like(corr_matrix_daily, dtype=bool))
 sns.heatmap(corr_matrix_daily, annot=True,mask=mask, cmap="warm")
 ```
-![top5_heatmap_dailyreturn_corr](https://github.com/drostark/Top-5-Tech-Stock-Market-Data-Analysis/blob/09d745ee6c33be379760af68dd0187e23469e207/Images/230629_05_heatmap_dailyreturn_corr.png)
+![top5_heatmap_dailyreturn_corr](https://github.com/drostark/Top-5-Tech-Stock-Market-Data-Analysis/blob/66675be111573b572a273226467f2765d63d6043/Images/230629_05_heatmap_dailyreturn_corr.png)
 
 6. To visually analyze the risk versus expected return of multiple stocks, a scatter plot was generated. This plot showcases the relationship between the expected return and risk for each stock.
 ```python
@@ -300,7 +301,7 @@ for label, x, y in zip(rets.columns, rets.mean(), rets.std()):
     plt.annotate(label, xy=(x, y), xytext=(25, 25), textcoords='offset points', ha='right',
         va='bottom', arrowprops=dict(arrowstyle='-', connectionstyle='arc3,rad=-0.3', color='black'))
 ```
-![top5_scatter_risk_vs_expected_returnr](https://github.com/drostark/Top-5-Tech-Stock-Market-Data-Analysis/blob/3c5aca6bbe3ecb049dff4d8627c41032a8f185a2/Images/230629_06_scatter_risk_vs_expected_return.png)
+![top5_scatter_risk_vs_expected_returnr](https://github.com/drostark/Top-5-Tech-Stock-Market-Data-Analysis/blob/66675be111573b572a273226467f2765d63d6043/Images/230629_06_scatter_risk_vs_expected_return.png)
 
 7. To estimate the value at risk for a stock, we can utilize the Bootstrap method for risk analysis. This approach involves calculating the empirical quantile, which provides a measure of the risk value for the stock. By determining the confidence interval using the Bootstrap method, we can assess the range within which the stock's risk falls
 ```python
