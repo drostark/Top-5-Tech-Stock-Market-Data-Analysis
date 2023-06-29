@@ -318,9 +318,74 @@ The quantile for MSFT is: -0.026698565688504816
 The quantile for GOOG is: -0.031143394277304393
 ```
 For instance, the 0.05 empirical quantile of daily returns for `AAPL` is at -0.028. That means that with 95% confidence, our worst daily loss will not exceed 2.8%. If we have 1 million dollar investment, our one-day 5% VaR is 0.028*1,000,000 = $28,000.
-8. How can we attempt to predict future stock behavior?
 
+8. To predict the future behavior of a stock, I will employ the Monte Carlo method, which involves running multiple trials with random market conditions. By simulating these scenarios, I will calculate portfolio losses for each trial and analyze the aggregated results to determine the level of risk associated with the stock.
+
+The Monte Carlo method utilizes the geometric Brownian motion (GBM), which is a type of random walk and aligns with the weak form of the efficient market hypothesis (EMH). According to this hypothesis, past price information is already incorporated into the stock price, and future price movements are conditionally independent of past movements. 
+The equation for geometric Browninan motion is given by the following equation:
+$$\frac{\Delta S}{S} = \mu\Delta t + \sigma \epsilon \sqrt{\Delta t}$$
+
+
+It is important to note that the past price of a stock does not provide a perfect prediction of its future value. The Monte Carlo method allows us to simulate various outcomes and assess the uncertainty associated with the stock's performance.
+
+To demonstrate the basic application of the Monte Carlo method, we will start with a few simulations using the DataFrame and the stock symbol AAPL.
+```python
+# The parameters
+days = 365 # Time period
+dt = 1/days
+mu = rets.mean()['AAPL'] # Average
+sigma = rets.std()['AAPL'] # Volatility of the stock
+```
+```python
+# Monte Carlo function - takes in the starting price and number of days and using the sigma(volatility)
+# and mu(average) from the daily returns
+def stock_monte_carlo(start_price,days,mu,sigma):
+    price = np.zeros(days)
+    price[0] = start_price
+
+    shock = np.zeros(days)
+    drift = np.zeros(days)
+
+    for x in range(1,days):
+        shock[x] = np.random.normal(loc=mu*dt, scale=sigma*np.sqrt(dt))
+        drift[x] = mu * dt
+        price[x] = price[x-1] + (price[x-1] * (drift[x]+shock[x]))
+    return price
+```
+I want to point out that In the Monte Carlo simulation function, the `drift` represents the expected change in the stock price based on historical data, while the `shock` accounts for the random fluctuations or volatility in the stock price. These components are combined with the previous day's stock price to calculate the next day's price, simulating the stochastic nature of stock price movements.
+
+Once the starting price is set at $142.13, I would proceed to run the Monte Carlo simulation for a total of 10,000 iterations.
+```python
+for run in range(10000):
+    plt.plot(stock_monte_carlo(start_price,days,mu,sigma))
+
+plt.xlabel('Days')
+plt.ylabel('Price')
+plt.title('Monte Carlo Analysis for Apple')
+```
+![aapl_montecarlo](https://github.com/drostark/Top-5-Tech-Stock-Market-Data-Analysis/blob/3c5aca6bbe3ecb049dff4d8627c41032a8f185a2/Images/230629_06_scatter_risk_vs_expected_return.png)
+
+To provide an explanation for the plot above, I will generate a histogram of the final results. Quantiles will be utilized to determine the level of risk associated with the AAPL stock.
+
+```python
+# define q as 1% empirical quantile - 99% of the values should fit within our output
+q = np.percentile(simulations,1)
+plt.hist(simulations, bins= 200)
+# Starting Price
+plt.figtext(0.6, 0.8, s="Start price: $%.2f" %start_price)
+# Mean ending price
+plt.figtext(0.6, 0.7, "Mean final price: $%.2f" % simulations.mean())
+# Variance of the price (within 99% confidence interval)
+plt.figtext(0.6, 0.6, "VaR(0.99): $%.2f" % (start_price - q,))
+# Display 1% quantile
+plt.figtext(0.15, 0.6, "q(0.99): $%.2f" % q)
+# Plot a line at the 1% quantile result
+plt.axvline(x=q, linewidth=4, color='r')
+# Title
+plt.title(u"Final price distribution for Apple Stock after %s days" % days, weight='bold')
+```
+![aapl_var_hist](https://github.com/drostark/Top-5-Tech-Stock-Market-Data-Analysis/blob/3c5aca6bbe3ecb049dff4d8627c41032a8f185a2/Images/230629_06_scatter_risk_vs_expected_return.png)
 
 ## Conclusion
-By analyzing the market data of these top 5 tech stocks and addressing the relevant questions, investors can gain valuable insights into their performance and investment potential. The data preparation, analysis, and sharing phases provide a systematic approach to understand the stock prices, market capitalization, revenue growth, EPS, and volatility of these companies. However, it's important to conduct further research and seek professional advice before making any investment decisions.
+By analyzing the market data of these top 5 tech stocks and addressing the relevant questions, investors can gain valuable insights into their performance and investment potential. The data preparation, analysis, and sharing phases provide a systematic approach to understanding the stock prices, market capitalization, revenue growth, EPS, and volatility of these companies. However, it's essential to conduct further research and seek professional advice before making any investment decisions.
 
