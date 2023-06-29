@@ -1,7 +1,7 @@
 # Top 5 Tech Stock Market Data Analysis
 
 ## Introduction
-In my analysis, conducted as of 28/06/2023, I will examine the market data of the top 5 tech stocks and provide insights into their performance and potential for investment. These stocks represent some of the most prominent companies in the technology sector and have shown significant growth in recent years.
+In my analysis, conducted as of 29/06/2023, I will examine the market data of the top 5 tech stocks and provide insights into their performance and potential for investment. These stocks represent some of the most prominent companies in the technology sector and have shown significant growth in recent years.
 
 ## Stock List
 
@@ -187,8 +187,9 @@ ax.set_title('Stock Prices')
 Using the same approach, another line plot was created to visualize the trading volumes of the stocks over the past year. The x-axis of the plot corresponds to the dates, while the y-axis represents the trading volume.
    ![top5_volume](https://github.com/drostark/Top-5-Tech-Stock-Market-Data-Analysis/blob/70d49910ac53358a255e5fb3bb865622faa15f26/Images/230628_01_top5_volume.png)
 
-2. To address the question regarding the average daily return of the stocks, I computed the percentage change in the `Adj Close` column, representing the `Daily Return`. The resulting plot illustrates the daily returns of the stocks and incorporates a reference line that represents the average daily return for each stock. This enables straightforward comparisons among the stocks' daily returns and facilitates the identification of stocks with relatively higher or lower average returns
-   ![top5_daily_return_pct](https://github.com/drostark/Top-5-Tech-Stock-Market-Data-Analysis/blob/07ed06ec080f51a851a8e67eaba9d8ce94011082/Images/230628_02_top5_tech_daily_return_pct.png)
+2. To address the question regarding the average daily return of the stocks, I computed the percentage change in the `Adj Close` column, representing the `Daily Return`. The resulting plot illustrates the daily returns of the stocks and incorporates a reference line that represents the average daily return for each stock. This enables straightforward comparisons among the stocks' daily returns and facilitates the identification of stocks with relatively higher or lower average returns.
+
+![top5_daily_return_pct](https://github.com/drostark/Top-5-Tech-Stock-Market-Data-Analysis/blob/07ed06ec080f51a851a8e67eaba9d8ce94011082/Images/230628_02_top5_tech_daily_return_pct.png)
 Due to discrepancies in the `minimum` and `maximum` values of the 'META' stock compared to other tech stocks in the generated plot, I opted to isolate the 'META' stock and further investigate the issue.
 ```python
 meta_returns = META['Adj Close'].pct_change()
@@ -223,12 +224,15 @@ To delve further into my interest in the performance of the 'META' stock over th
 sns.distplot(META['Daily Return'].dropna(), bins=100, color='purple')
 plt.gca().yaxis.set_major_formatter(mtick.PercentFormatter(1.0))
 ```
+
    ![meta_daily_return_kde](https://github.com/drostark/Top-5-Tech-Stock-Market-Data-Analysis/blob/26c6990a071406d308bfa8b0325fd09dff75691a/Images/230628_02_meta_tech_daily_return_kde.png)
 
 3. To answer the third question, "What was the moving average of the various stocks?", a plot was generated to show the 20-day moving average for each stock. The plot represents the stock prices on the y-axis and the dates on the x-axis. Each line in the plot corresponds to the 20-day moving average for a specific stock. The moving average provides a smoothed trend line that reflects the average price over the past 20 days. This plot allows for easy comparison and analysis of the moving average trends across different stocks, providing insights into the overall direction and stability of each stock's price movement over the specified time period.
-   ![top5_ma_20](https://github.com/drostark/Top-5-Tech-Stock-Market-Data-Analysis/blob/26c6990a071406d308bfa8b0325fd09dff75691a/Images/230628_02_meta_tech_daily_return_kde.png)
 
-4. 
+![top5_ma_20](https://github.com/drostark/Top-5-Tech-Stock-Market-Data-Analysis/blob/11abc1354e6e42d2e514e189dfd021a2b095a94d/Images/230628_03_top5_ma_20_days.png)
+
+4. To address the fourth question, What was the correlation between different stocks' closing prices?
+5. To answer the fifth question, What was the correlation between different stocks' daily returns?
 ## Conclusion
 By analyzing the market data of these top 5 tech stocks and addressing the relevant questions, investors can gain valuable insights into their performance and investment potential. The data preparation, analysis, and sharing phases provide a systematic approach to understand the stock prices, market capitalization, revenue growth, EPS, and volatility of these companies. However, it's important to conduct further research and seek professional advice before making any investment decisions.
 
