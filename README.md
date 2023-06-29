@@ -61,7 +61,7 @@ In this project, we will employ the Google data analysis process, comprising the
 
 ## Part 1: Ask
 
-1.	What was the change in price of the stock over time?
+1.	What was the change in the price of the stock over time?
 2.	What was the daily return of the stock on average?
 3.	What was the moving average of the various stocks?
 4.	What was the correlation between different stocks' closing prices?
@@ -247,14 +247,49 @@ tech_rets.isnull().sum()
 tech_rets=tech_rets.dropna()
 ```
 To gain insights into potential correlations and patterns among the closing prices of different stocks, I created a pair grid plot. This plot utilizes scatter plots, KDE plots, and histograms to represent the data in the respective sections of the grid. By examining the relationships and distributions of the closing prices, we can better understand any potential connections or trends among the stocks.
+```python
+# Pair Grid - CLOSING PRICES
+returns_fig = sns.PairGrid(sorted_closing_df.dropna())
+# Decide for each section (upper diagonal,lower,main)
+returns_fig.map_upper(plt.scatter, color='purple')
+returns_fig.map_lower(sns.kdeplot, cmap='cool_d')
+returns_fig.map_diag(plt.hist,bins=30)
+```
 
-![top5_pari_grid_scatter_kde_hist](https://github.com/drostark/Top-5-Tech-Stock-Market-Data-Analysis/blob/11abc1354e6e42d2e514e189dfd021a2b095a94d/Images/230628_03_top5_ma_20_days.png)
+![top5_pair_grid_closingprices](https://github.com/drostark/Top-5-Tech-Stock-Market-Data-Analysis/blob/54eccf34e652d5d8f542e89ce4334ebcd3772e2e/Images/230629_04_pairgrid_closingprices.png)
 
 To further clarify the correlation between the closing prices of different stocks, I created a correlation plot in the form of a heatmap. The correlation matrix was calculated based on the closing prices, indicating the strength and direction of the relationships between the stocks. A mask was applied to the heatmap to display only the lower triangular portion of the matrix, avoiding duplicate and redundant information. The values of the correlations are also annotated on the heatmap, providing a visual representation of the relationships between the stocks' closing prices.
+```python
+# Heatmap(Correlation plot) - CLOSING PRICES
+corr_matrix_closing = sorted_closing_df.corr()
+mask = np.tril(np.ones_like(corr_matrix_closing, dtype=bool))
+sns.heatmap(corr_matrix_closing, annot=True,mask=mask)
+```
+![top5_heatmap_closingprices_corr](https://github.com/drostark/Top-5-Tech-Stock-Market-Data-Analysis/blob/54eccf34e652d5d8f542e89ce4334ebcd3772e2e/Images/230629_04_heatmap_closingprices_corr.png)
 
-![top5_pari_grid_scatter_kde_hist](https://github.com/drostark/Top-5-Tech-Stock-Market-Data-Analysis/blob/11abc1354e6e42d2e514e189dfd021a2b095a94d/Images/230628_03_top5_ma_20_days.png)
+5. To analyze the correlation between the daily returns of different stocks, I've generated another pair grid plot. This plot visually presents the relationships and distributions of the daily returns using scatter plots, KDE plots, and histograms. By studying these visual representations, we can identify any correlations, patterns, or trends in the daily returns of the stocks, providing insights into their interconnectedness and potential relationships.
+```python
+# Pair Grid - DAILY RETURN!
+returns_fig = sns.PairGrid(sorted_tech_rets)
+# Decide for each section (upper diagonal,lower,main)
+returns_fig.map_upper(plt.scatter, color='green')
+returns_fig.map_lower(sns.kdeplot, cmap='cool_d')
+returns_fig.map_diag(plt.hist,bins=30)
+```
 
-5. To answer the fifth question, What was the correlation between different stocks' daily returns?
+![top5_pair_grid_dailyreturn](https://github.com/drostark/Top-5-Tech-Stock-Market-Data-Analysis/blob/54eccf34e652d5d8f542e89ce4334ebcd3772e2e/Images/230629_04_pairgrid_closingprices.png)
+
+Additionally, I created a correlation heatmap to analyze the relationships between the daily returns of different stocks. The heatmap presents a correlation matrix, highlighting the strength and direction of these relationships.
+```python
+# Heatmap(Correlation plot) - DAILY RETURN!
+corr_matrix_daily = sorted_tech_rets.corr()
+mask = np.tril(np.ones_like(corr_matrix_daily, dtype=bool))
+sns.heatmap(corr_matrix_daily, annot=True,mask=mask, cmap="warm")
+```
+![top5_heatmap_dailyreturn_corr](https://github.com/drostark/Top-5-Tech-Stock-Market-Data-Analysis/blob/54eccf34e652d5d8f542e89ce4334ebcd3772e2e/Images/230629_04_heatmap_closingprices_corr.png)
+
+6. 
+
 ## Conclusion
 By analyzing the market data of these top 5 tech stocks and addressing the relevant questions, investors can gain valuable insights into their performance and investment potential. The data preparation, analysis, and sharing phases provide a systematic approach to understand the stock prices, market capitalization, revenue growth, EPS, and volatility of these companies. However, it's important to conduct further research and seek professional advice before making any investment decisions.
 
