@@ -300,7 +300,7 @@ for label, x, y in zip(rets.columns, rets.mean(), rets.std()):
     plt.annotate(label, xy=(x, y), xytext=(25, 25), textcoords='offset points', ha='right',
         va='bottom', arrowprops=dict(arrowstyle='-', connectionstyle='arc3,rad=-0.3', color='black'))
 ```
-![top5_scatter_risk_vs_expected_returnr]()
+![top5_scatter_risk_vs_expected_returnr](https://github.com/drostark/Top-5-Tech-Stock-Market-Data-Analysis/blob/3c5aca6bbe3ecb049dff4d8627c41032a8f185a2/Images/230629_06_scatter_risk_vs_expected_return.png)
 
 7.
 
