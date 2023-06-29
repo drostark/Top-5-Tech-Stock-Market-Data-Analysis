@@ -67,8 +67,8 @@ In this project, we will employ the Google data analysis process, comprising the
 4.	What was the correlation between different stocks' closing prices?
 5.	What was the correlation between different stocks' daily returns?
 6.	How much value do we put at risk by investing in a particular stock?
-7.	How can we attempt to predict future stock behavior?
-8.	How can we estimate the value at risk for a stock?
+7.	How can we estimate the value at risk for a stock?
+8.	How can we attempt to predict future stock behavior?
 
 ## Part 2: Data Preparation
 
@@ -302,7 +302,23 @@ for label, x, y in zip(rets.columns, rets.mean(), rets.std()):
 ```
 ![top5_scatter_risk_vs_expected_returnr](https://github.com/drostark/Top-5-Tech-Stock-Market-Data-Analysis/blob/3c5aca6bbe3ecb049dff4d8627c41032a8f185a2/Images/230629_06_scatter_risk_vs_expected_return.png)
 
-7.
+7. To estimate the value at risk for a stock, we can utilize the Bootstrap method for risk analysis. This approach involves calculating the empirical quantile, which provides a measure of the risk value for the stock. By determining the confidence interval using the Bootstrap method, we can assess the range within which the stock's risk falls
+```python
+stocks = ['AAPL', 'AMZN', 'META', 'MSFT', 'GOOG']
+
+for stock in stocks:
+    quantile = rets[stock].quantile(0.05) # 95% of confidence
+    print(f"The quantile for {stock} is: {quantile}") 
+```
+```
+The quantile for AAPL is: -0.02835961704420592
+The quantile for AMZN is: -0.04021439943586136
+The quantile for META is: -0.042107481842461436
+The quantile for MSFT is: -0.026698565688504816
+The quantile for GOOG is: -0.031143394277304393
+```
+For instance, the 0.05 empirical quantile of daily returns for `AAPL` is at -0.028. That means that with 95% confidence, our worst daily loss will not exceed 2.8%. If we have 1 million dollar investment, our one-day 5% VaR is 0.028*1,000,000 = $28,000.
+8. How can we attempt to predict future stock behavior?
 
 
 ## Conclusion
