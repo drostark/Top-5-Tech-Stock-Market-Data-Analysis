@@ -1,7 +1,7 @@
 # Top 5 Tech Stock Market Data Analysis
 
 ## Introduction
-In my analysis, conducted as of 29/06/2023, I will examine the market data of the top 5 tech stocks and provide insights into their performance and potential for investment. These stocks represent some of the most prominent companies in the technology sector and have shown significant growth in recent years.
+In my analysis, conducted as of 28/06/2023, I will examine the market data of the top 5 tech stocks and provide insights into their performance and potential for investment. These stocks represent some of the most prominent companies in the technology sector and have shown significant growth in recent years.
 
 ## Stock List
 
@@ -231,7 +231,29 @@ plt.gca().yaxis.set_major_formatter(mtick.PercentFormatter(1.0))
 
 ![top5_ma_20](https://github.com/drostark/Top-5-Tech-Stock-Market-Data-Analysis/blob/11abc1354e6e42d2e514e189dfd021a2b095a94d/Images/230628_03_top5_ma_20_days.png)
 
-4. To address the fourth question, What was the correlation between different stocks' closing prices?
+4. In order to investigate the correlation between the closing prices of different stocks, I conducted the following steps. Firstly, I created a DataFrame named `closing_df` to store the closing prices of the stocks. Then, I computed the daily returns of the closing prices and removed any missing values from the dataset. These initial preparations lay the groundwork for generating plots that will visually depict the correlation between the closing prices of the different stocks.
+```python
+closing_df = pd.DataFrame()
+for symbol in tech_list:
+    data = yf.download(symbol, start=start, end=end)
+    closing_df[symbol] = data['Adj Close']
+
+sorted_closing_df_columns = sorted(closing_df.columns)
+sorted_closing_df = closing_df.reindex(columns=sorted_closing_df_columns)
+
+# Getting the daily returns for the closing prices
+tech_rets = closing_df.pct_change()
+tech_rets.isnull().sum()
+tech_rets=tech_rets.dropna()
+```
+To gain insights into potential correlations and patterns among the closing prices of different stocks, I created a pair grid plot. This plot utilizes scatter plots, KDE plots, and histograms to represent the data in the respective sections of the grid. By examining the relationships and distributions of the closing prices, we can better understand any potential connections or trends among the stocks.
+
+![top5_pari_grid_scatter_kde_hist](https://github.com/drostark/Top-5-Tech-Stock-Market-Data-Analysis/blob/11abc1354e6e42d2e514e189dfd021a2b095a94d/Images/230628_03_top5_ma_20_days.png)
+
+To further clarify the correlation between the closing prices of different stocks, I created a correlation plot in the form of a heatmap. The correlation matrix was calculated based on the closing prices, indicating the strength and direction of the relationships between the stocks. A mask was applied to the heatmap to display only the lower triangular portion of the matrix, avoiding duplicate and redundant information. The values of the correlations are also annotated on the heatmap, providing a visual representation of the relationships between the stocks' closing prices.
+
+![top5_pari_grid_scatter_kde_hist](https://github.com/drostark/Top-5-Tech-Stock-Market-Data-Analysis/blob/11abc1354e6e42d2e514e189dfd021a2b095a94d/Images/230628_03_top5_ma_20_days.png)
+
 5. To answer the fifth question, What was the correlation between different stocks' daily returns?
 ## Conclusion
 By analyzing the market data of these top 5 tech stocks and addressing the relevant questions, investors can gain valuable insights into their performance and investment potential. The data preparation, analysis, and sharing phases provide a systematic approach to understand the stock prices, market capitalization, revenue growth, EPS, and volatility of these companies. However, it's important to conduct further research and seek professional advice before making any investment decisions.
