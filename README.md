@@ -277,7 +277,7 @@ returns_fig.map_lower(sns.kdeplot, cmap='cool_d')
 returns_fig.map_diag(plt.hist,bins=30)
 ```
 
-![top5_pair_grid_dailyreturn](https://github.com/drostark/Top-5-Tech-Stock-Market-Data-Analysis/blob/54eccf34e652d5d8f542e89ce4334ebcd3772e2e/Images/230629_04_pairgrid_closingprices.png)
+![top5_pair_grid_dailyreturn](https://github.com/drostark/Top-5-Tech-Stock-Market-Data-Analysis/blob/09d745ee6c33be379760af68dd0187e23469e207/Images/230629_05_pairgrid_dailyreturn.png)
 
 Additionally, I created a correlation heatmap to analyze the relationships between the daily returns of different stocks. The heatmap presents a correlation matrix, highlighting the strength and direction of these relationships.
 ```python
@@ -286,9 +286,24 @@ corr_matrix_daily = sorted_tech_rets.corr()
 mask = np.tril(np.ones_like(corr_matrix_daily, dtype=bool))
 sns.heatmap(corr_matrix_daily, annot=True,mask=mask, cmap="warm")
 ```
-![top5_heatmap_dailyreturn_corr](https://github.com/drostark/Top-5-Tech-Stock-Market-Data-Analysis/blob/54eccf34e652d5d8f542e89ce4334ebcd3772e2e/Images/230629_04_heatmap_closingprices_corr.png)
+![top5_heatmap_dailyreturn_corr](https://github.com/drostark/Top-5-Tech-Stock-Market-Data-Analysis/blob/09d745ee6c33be379760af68dd0187e23469e207/Images/230629_05_heatmap_dailyreturn_corr.png)
 
-6. 
+6. To visually analyze the risk versus expected return of multiple stocks, a scatter plot was generated. This plot showcases the relationship between the expected return and risk for each stock.
+```python
+rets = sorted_tech_rets.dropna()
+area = np.pi*20
+plt.scatter(x=rets.mean(), y=rets.std(), s=area)
+plt.xlabel('Expected Return')
+plt.ylabel('Risk')
+
+for label, x, y in zip(rets.columns, rets.mean(), rets.std()):
+    plt.annotate(label, xy=(x, y), xytext=(25, 25), textcoords='offset points', ha='right',
+        va='bottom', arrowprops=dict(arrowstyle='-', connectionstyle='arc3,rad=-0.3', color='black'))
+```
+![top5_scatter_risk_vs_expected_returnr]()
+
+7.
+
 
 ## Conclusion
 By analyzing the market data of these top 5 tech stocks and addressing the relevant questions, investors can gain valuable insights into their performance and investment potential. The data preparation, analysis, and sharing phases provide a systematic approach to understand the stock prices, market capitalization, revenue growth, EPS, and volatility of these companies. However, it's important to conduct further research and seek professional advice before making any investment decisions.
