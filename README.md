@@ -363,7 +363,7 @@ plt.xlabel('Days')
 plt.ylabel('Price')
 plt.title('Monte Carlo Analysis for Apple')
 ```
-![aapl_montecarlo](https://github.com/drostark/Top-5-Tech-Stock-Market-Data-Analysis/blob/3c5aca6bbe3ecb049dff4d8627c41032a8f185a2/Images/230629_06_scatter_risk_vs_expected_return.png)
+![aapl_montecarlo](https://github.com/drostark/Top-5-Tech-Stock-Market-Data-Analysis/blob/e0bebbf3c98df81f48625c598736a54813922457/Images/230629_08_montecarlo_aapl.png)
 
 To provide an explanation for the plot above, I will generate a histogram of the final results. Quantiles will be utilized to determine the level of risk associated with the AAPL stock.
 
@@ -384,8 +384,20 @@ plt.axvline(x=q, linewidth=4, color='r')
 # Title
 plt.title(u"Final price distribution for Apple Stock after %s days" % days, weight='bold')
 ```
-![aapl_var_hist](https://github.com/drostark/Top-5-Tech-Stock-Market-Data-Analysis/blob/3c5aca6bbe3ecb049dff4d8627c41032a8f185a2/Images/230629_06_scatter_risk_vs_expected_return.png)
+![aapl_var_hist](https://github.com/drostark/Top-5-Tech-Stock-Market-Data-Analysis/blob/e0bebbf3c98df81f48625c598736a54813922457/Images/230629_08_hist_var_aapl.png)
 
 ## Conclusion
-By analyzing the market data of these top 5 tech stocks and addressing the relevant questions, investors can gain valuable insights into their performance and investment potential. The data preparation, analysis, and sharing phases provide a systematic approach to understanding the stock prices, market capitalization, revenue growth, EPS, and volatility of these companies. However, it's essential to conduct further research and seek professional advice before making any investment decisions.
+Based on the analysis conducted on the top 5 stocks (AAPL, GOOG, MSFT, AMZN, and META) using the dataset sourced from Yahoo Finance, several conclusions can be drawn.
+
+   1. The line plot depicting the change in adjusted closing prices of the stocks over the past year reveals a strong correlation among the top 5 stocks. The general trends and fluctuations in stock prices follow a similar pattern, indicating a positive correlation in their movements.
+
+   2. The daily return plot shows the average daily returns for each stock. By comparing the average returns, it can be observed that the stocks exhibit similar patterns, further supporting the presence of a strong correlation between them.
+
+   3.The 20-day moving average plot provides insights into the overall direction and stability of each stock's price movement. The moving averages for all five stocks show similar trends, reinforcing the notion of a strong correlation.
+
+   4. The pair grid plot representing the correlation between the closing prices of different stocks confirms the existence of a strong correlation among them. The scatter plots, KDE plots, and histograms reveal clustering and similar patterns, indicating a high degree of correlation.
+
+Overall, the analysis of the dataset suggests a strong correlation between the top 5 stocks, namely AAPL, GOOG, MSFT, AMZN, and META. Investors and analysts can leverage this correlation to gain insights into the overall performance and trends in the technology sector, enabling them to make informed investment decisions.
+
+It is important to note that the information provided above is for informational and analytical purposes only. It does not constitute financial advice or a recommendation for investment decisions. The analysis and insights presented should not be interpreted as a guarantee of future stock performance or as a basis for making investment choices. Investing in the stock market involves risks, and individuals should conduct thorough research, consult with a financial advisor, and consider their own financial goals and risk tolerance before making any investment decisions.
 
