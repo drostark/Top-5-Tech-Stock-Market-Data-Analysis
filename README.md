@@ -225,7 +225,7 @@ sns.distplot(META['Daily Return'].dropna(), bins=100, color='purple')
 plt.gca().yaxis.set_major_formatter(mtick.PercentFormatter(1.0))
 ```
 
-   ![meta_daily_return_kde](https://github.com/drostark/Top-5-Tech-Stock-Market-Data-Analysis/blob/26c6990a071406d308bfa8b0325fd09dff75691a/Images/230628_02_meta_tech_daily_return_kde.png)
+   ![meta_daily_return_kde](https://github.com/drostark/Top-5-Tech-Stock-Market-Data-Analysis/blob/cf276eecbd367381178169105dfdb66c66eed411/Images/230628_02_meta_tech_daily_return_kde.png)
 
 3. To answer the third question, "What was the moving average of the various stocks?", a plot was generated to show the 20-day moving average for each stock. The plot represents the stock prices on the y-axis and the dates on the x-axis. Each line in the plot corresponds to the 20-day moving average for a specific stock. The moving average provides a smoothed trend line that reflects the average price over the past 20 days. This plot allows for easy comparison and analysis of the moving average trends across different stocks, providing insights into the overall direction and stability of each stock's price movement over the specified time period.
 
