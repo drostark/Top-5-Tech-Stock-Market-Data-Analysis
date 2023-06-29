@@ -364,9 +364,8 @@ plt.xlabel('Days')
 plt.ylabel('Price')
 plt.title('Monte Carlo Analysis for Apple')
 ```
-![aapl_montecarlo](https://github.com/drostark/Top-5-Tech-Stock-Market-Data-Analysis/blob/e0bebbf3c98df81f48625c598736a54813922457/Images/230629_08_montecarlo_aapl.png)
 
-To provide an explanation for the plot above, I will generate a histogram of the final results. Quantiles will be utilized to determine the level of risk associated with the AAPL stock.
+Given the unclear nature of the Monte Carlo plot for 10,000 runs, I have made the decision to remove it. Instead, I will generate a histogram of the final results, which will offer a clearer depiction. Through the use of quantiles, we can evaluate the level of risk associated with the AAPL stock.
 
 ```python
 # define q as 1% empirical quantile - 99% of the values should fit within our output
